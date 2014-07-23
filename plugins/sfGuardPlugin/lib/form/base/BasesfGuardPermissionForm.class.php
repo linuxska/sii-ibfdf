@@ -29,10 +29,10 @@ abstract class BasesfGuardPermissionForm extends BaseFormPropel
       'sf_guard_user_permission_list'  => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
     ));
 
-    $this->validatorSchema->setPostValidator(
-      new sfValidatorPropelUnique(array('model' => 'sfGuardPermission', 'column' => array('name')))
-    );
 
+Warning: call_user_func() expects parameter 1 to be a valid callback, class 'sfGuardPermissionPeer' does not have a method 'getUniqueColumnNames' in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
+
+Warning: Invalid argument supplied for foreach() in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
     $this->widgetSchema->setNameFormat('sf_guard_permission[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
@@ -112,7 +112,7 @@ abstract class BasesfGuardPermissionForm extends BaseFormPropel
         $obj = new sfGuardGroupPermission();
         $obj->setPermissionId($this->object->getPrimaryKey());
         $obj->setGroupId($value);
-        $obj->save();
+        $obj->save($con);
       }
     }
   }
@@ -147,7 +147,7 @@ abstract class BasesfGuardPermissionForm extends BaseFormPropel
         $obj = new sfGuardUserPermission();
         $obj->setPermissionId($this->object->getPrimaryKey());
         $obj->setUserId($value);
-        $obj->save();
+        $obj->save($con);
       }
     }
   }

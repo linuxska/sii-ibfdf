@@ -1,7 +1,7 @@
 <?php use_stylesheet('sfGuardPlugin/signin.css')?>
 
 <div id="text">
-    <h2>Bienvenido Sistema Integral de Informacion de la Iglesia Bautista Fundamental de Celaya</h2>
+    <h2>Bienvenido Sistema Integral de Informacion de la Iglesia Bautista Monte Sion</h2>
     <dl>
         <dt>Inicie sesión</dt>
         <dd>Ingrese al sistema proporcionando sus datos de acceso en el formulario

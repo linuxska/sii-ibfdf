@@ -30,7 +30,7 @@
   <div id="wrapper">
           <div id="header">
               <div id="logos">
-                 <img alt="Iglesia Bautista de Celaya" src="/images/logos/banner.jpg" />
+                 <img alt="Iglesia Bautista de Celaya" src="/images/logos/banner.png" />
               </div>
           </div>
           <div id="content" class="ibf_admin_content">
@@ -43,8 +43,8 @@
               </div>
           </div>
           <div class="rp_admin_footer">
-      <p>&copy; <?php echo date('Y', time());?> <a href="http://www.ibfcelaya.org.mx/">Iglesia Bautista Fundamental de Celaya</a>.
-      <p class="rp_admin_ibf">Carretera Celaya-Salvatierra Km 7 Celaya, Gto. 38000.<br />Telefono: 01 461-618-2312| Fax: 01 461-618-2312</p>
+      <p>&copy; <?php echo date('Y', time());?> <a href="http://www.ibfms.mx/">Iglesia Bautista Fundamental Monte Sion</a>.
+      <p class="rp_admin_ibf">Cerrada de las Minas No. 10, Col. Xalpa, México D.F.<br />Tel.: (+525554274036)</p>
       <p class="rp_admin_dev">Desarrollado por Abraham Rafael Rico Moreno.<br /> <a href="http://www.abricolabs.net/">Labs Cafeinne</a>. 461 1433 296 </p>
     </div>
       </div>

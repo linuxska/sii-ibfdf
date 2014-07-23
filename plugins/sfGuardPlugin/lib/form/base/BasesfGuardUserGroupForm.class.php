@@ -23,6 +23,10 @@ abstract class BasesfGuardUserGroupForm extends BaseFormPropel
       'group_id' => new sfValidatorPropelChoice(array('model' => 'sfGuardGroup', 'column' => 'id', 'required' => false)),
     ));
 
+
+Warning: call_user_func() expects parameter 1 to be a valid callback, class 'sfGuardUserGroupPeer' does not have a method 'getUniqueColumnNames' in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
+
+Warning: Invalid argument supplied for foreach() in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
     $this->widgetSchema->setNameFormat('sf_guard_user_group[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

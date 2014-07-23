@@ -12,11 +12,11 @@ all:
   success_signout_url:          '@homepage'
 
  sf_guard_extra_plugin:
-        mail_from:        contacto@ibfcelaya.org.mx
-        name_from:        Pastor Alejandro Cordova Karan
+        mail_from:        iglesiabautistamontesion@hotmail.com
+        name_from:        Pastor Dr. Kevin Wynne
         subject_confirm:  Confirmación de registro
         subject_complete: Petición completa
         subject_request:  Petición de reestablecimiento de contraseña
         subject_success:  Contraseña reestablecida satisfactorimente
-        admin_mail_from:  contacto@ibfcelaya.org.mx
+        admin_mail_from:  iglesiabautistamontesion@hotmail.com
         admin_name_from:  Abraham Rafael Rico Moreno

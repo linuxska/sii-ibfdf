@@ -16,13 +16,13 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterPropel
       'algorithm'                     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'salt'                          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'password'                      => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'email'                         => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'email'                         => new sfWidgetFormFilterInput(),
       'created_at'                    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'last_login'                    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'is_active'                     => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'is_super_admin'                => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'sf_guard_user_group_list'      => new sfWidgetFormPropelChoice(array('model' => 'sfGuardGroup', 'add_empty' => true)),
       'sf_guard_user_permission_list' => new sfWidgetFormPropelChoice(array('model' => 'sfGuardPermission', 'add_empty' => true)),
+      'sf_guard_user_group_list'      => new sfWidgetFormPropelChoice(array('model' => 'sfGuardGroup', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -35,8 +35,8 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterPropel
       'last_login'                    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'is_active'                     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'is_super_admin'                => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'sf_guard_user_group_list'      => new sfValidatorPropelChoice(array('model' => 'sfGuardGroup', 'required' => false)),
       'sf_guard_user_permission_list' => new sfValidatorPropelChoice(array('model' => 'sfGuardPermission', 'required' => false)),
+      'sf_guard_user_group_list'      => new sfValidatorPropelChoice(array('model' => 'sfGuardGroup', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('sf_guard_user_filters[%s]');
@@ -44,31 +44,6 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterPropel
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
     parent::setup();
-  }
-
-  public function addsfGuardUserGroupListColumnCriteria(Criteria $criteria, $field, $values)
-  {
-    if (!is_array($values))
-    {
-      $values = array($values);
-    }
-
-    if (!count($values))
-    {
-      return;
-    }
-
-    $criteria->addJoin(sfGuardUserGroupPeer::USER_ID, sfGuardUserPeer::ID);
-
-    $value = array_pop($values);
-    $criterion = $criteria->getNewCriterion(sfGuardUserGroupPeer::GROUP_ID, $value);
-
-    foreach ($values as $value)
-    {
-      $criterion->addOr($criteria->getNewCriterion(sfGuardUserGroupPeer::GROUP_ID, $value));
-    }
-
-    $criteria->add($criterion);
   }
 
   public function addsfGuardUserPermissionListColumnCriteria(Criteria $criteria, $field, $values)
@@ -83,7 +58,7 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterPropel
       return;
     }
 
-    $criteria->addJoin(sfGuardUserPermissionPeer::USER_ID, sfGuardUserPeer::ID);
+    $criteria->addJoin(sfGuardUserPeer::ID, sfGuardUserPermissionPeer::USER_ID);
 
     $value = array_pop($values);
     $criterion = $criteria->getNewCriterion(sfGuardUserPermissionPeer::PERMISSION_ID, $value);
@@ -91,6 +66,31 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterPropel
     foreach ($values as $value)
     {
       $criterion->addOr($criteria->getNewCriterion(sfGuardUserPermissionPeer::PERMISSION_ID, $value));
+    }
+
+    $criteria->add($criterion);
+  }
+
+  public function addsfGuardUserGroupListColumnCriteria(Criteria $criteria, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $criteria->addJoin(sfGuardUserPeer::ID, sfGuardUserGroupPeer::USER_ID);
+
+    $value = array_pop($values);
+    $criterion = $criteria->getNewCriterion(sfGuardUserGroupPeer::GROUP_ID, $value);
+
+    foreach ($values as $value)
+    {
+      $criterion->addOr($criteria->getNewCriterion(sfGuardUserGroupPeer::GROUP_ID, $value));
     }
 
     $criteria->add($criterion);
@@ -114,8 +114,8 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterPropel
       'last_login'                    => 'Date',
       'is_active'                     => 'Boolean',
       'is_super_admin'                => 'Boolean',
-      'sf_guard_user_group_list'      => 'ManyKey',
       'sf_guard_user_permission_list' => 'ManyKey',
+      'sf_guard_user_group_list'      => 'ManyKey',
     );
   }
 }

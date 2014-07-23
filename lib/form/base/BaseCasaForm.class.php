@@ -15,7 +15,6 @@ abstract class BaseCasaForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
-      'ministerio'    => new sfWidgetFormPropelChoice(array('model' => 'Ministerio', 'add_empty' => false)),
       'nombre'        => new sfWidgetFormInputText(),
       'apaterno'      => new sfWidgetFormInputText(),
       'amaterno'      => new sfWidgetFormInputText(),
@@ -42,7 +41,6 @@ abstract class BaseCasaForm extends BaseFormPropel
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
-      'ministerio'    => new sfValidatorPropelChoice(array('model' => 'Ministerio', 'column' => 'id')),
       'nombre'        => new sfValidatorString(array('max_length' => 255)),
       'apaterno'      => new sfValidatorString(array('max_length' => 255)),
       'amaterno'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
@@ -67,6 +65,10 @@ abstract class BaseCasaForm extends BaseFormPropel
       'observaciones' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
+
+Warning: call_user_func() expects parameter 1 to be a valid callback, class 'CasaPeer' does not have a method 'getUniqueColumnNames' in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
+
+Warning: Invalid argument supplied for foreach() in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
     $this->widgetSchema->setNameFormat('casa[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

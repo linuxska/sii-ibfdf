@@ -12,7 +12,6 @@ abstract class BaseMiembroFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'ministerio'    => new sfWidgetFormPropelChoice(array('model' => 'Ministerio', 'add_empty' => true)),
       'nombre'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'apaterno'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'amaterno'      => new sfWidgetFormFilterInput(),
@@ -31,7 +30,6 @@ abstract class BaseMiembroFormFilter extends BaseFormFilterPropel
     ));
 
     $this->setValidators(array(
-      'ministerio'    => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Ministerio', 'column' => 'id')),
       'nombre'        => new sfValidatorPass(array('required' => false)),
       'apaterno'      => new sfValidatorPass(array('required' => false)),
       'amaterno'      => new sfValidatorPass(array('required' => false)),
@@ -65,7 +63,6 @@ abstract class BaseMiembroFormFilter extends BaseFormFilterPropel
   {
     return array(
       'id'            => 'Number',
-      'ministerio'    => 'ForeignKey',
       'nombre'        => 'Text',
       'apaterno'      => 'Text',
       'amaterno'      => 'Text',

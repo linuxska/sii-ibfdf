@@ -5,7 +5,6 @@ propel:
 
   casa:
     id:            ~
-    ministerio:    { type: integer, foreignTable: ministerio, foreignReference: id, required: true, onDelete: CASCADE }
     nombre:        { type: varchar(255), required: true }
     apaterno:      { type: varchar(255), required: true }
     amaterno:      { type: varchar(255) }
@@ -31,7 +30,6 @@ propel:
 
   miembro:
     id:            ~
-    ministerio:    { type: integer, foreignTable: ministerio, foreignReference: id, required: true, onDelete: CASCADE }
     nombre:        { type: varchar(255), required: true }
     apaterno:      { type: varchar(255), required: true }
     amaterno:      { type: varchar(255) }
