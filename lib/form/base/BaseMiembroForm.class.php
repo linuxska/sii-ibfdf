@@ -15,6 +15,7 @@ abstract class BaseMiembroForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
+      'ministerio'    => new sfWidgetFormPropelChoice(array('model' => 'Ministerios', 'add_empty' => false)),
       'nombre'        => new sfWidgetFormInputText(),
       'apaterno'      => new sfWidgetFormInputText(),
       'amaterno'      => new sfWidgetFormInputText(),
@@ -34,6 +35,7 @@ abstract class BaseMiembroForm extends BaseFormPropel
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
+      'ministerio'    => new sfValidatorPropelChoice(array('model' => 'Ministerios', 'column' => 'id')),
       'nombre'        => new sfValidatorString(array('max_length' => 255)),
       'apaterno'      => new sfValidatorString(array('max_length' => 255)),
       'amaterno'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),

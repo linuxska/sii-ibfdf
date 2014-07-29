@@ -30,12 +30,9 @@ abstract class BaseCasaForm extends BaseFormPropel
       'jovenes'       => new sfWidgetFormInputText(),
       'jovencitas'    => new sfWidgetFormInputText(),
       'totalpersonas' => new sfWidgetFormInputText(),
-      'colchonetas'   => new sfWidgetFormInputText(),
-      'iglesia'       => new sfWidgetFormInputText(),
-      'zona'          => new sfWidgetFormInputText(),
       'coordenadas'   => new sfWidgetFormInputText(),
-      'asignado'      => new sfWidgetFormInputCheckbox(),
-      'alternos'      => new sfWidgetFormInputCheckbox(),
+      'asignado'      => new sfWidgetFormInputText(),
+      'alternos'      => new sfWidgetFormInputText(),
       'observaciones' => new sfWidgetFormInputText(),
     ));
 
@@ -47,7 +44,7 @@ abstract class BaseCasaForm extends BaseFormPropel
       'direccion'     => new sfValidatorString(array('max_length' => 255)),
       'colonia'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'cp'            => new sfValidatorString(array('max_length' => 5, 'required' => false)),
-      'ruta'          => new sfValidatorString(array('max_length' => 10, 'required' => false)),
+      'ruta'          => new sfValidatorString(array('max_length' => 32)),
       'ciudad'        => new sfValidatorString(array('max_length' => 255)),
       'telcasa'       => new sfValidatorString(array('max_length' => 10, 'required' => false)),
       'telmovil'      => new sfValidatorString(array('max_length' => 10, 'required' => false)),
@@ -56,19 +53,12 @@ abstract class BaseCasaForm extends BaseFormPropel
       'jovenes'       => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'jovencitas'    => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'totalpersonas' => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
-      'colchonetas'   => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
-      'iglesia'       => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
-      'zona'          => new sfValidatorString(array('max_length' => 1)),
       'coordenadas'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'asignado'      => new sfValidatorBoolean(),
-      'alternos'      => new sfValidatorBoolean(),
+      'asignado'      => new sfValidatorInteger(array('min' => -128, 'max' => 127)),
+      'alternos'      => new sfValidatorInteger(array('min' => -128, 'max' => 127)),
       'observaciones' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
-
-Warning: call_user_func() expects parameter 1 to be a valid callback, class 'CasaPeer' does not have a method 'getUniqueColumnNames' in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
-
-Warning: Invalid argument supplied for foreach() in /Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/plugins/sfPropelORMPlugin/lib/generator/sfPropelFormGenerator.class.php on line 562
     $this->widgetSchema->setNameFormat('casa[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

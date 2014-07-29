@@ -18,7 +18,7 @@ abstract class BaseCasaFormFilter extends BaseFormFilterPropel
       'direccion'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'colonia'       => new sfWidgetFormFilterInput(),
       'cp'            => new sfWidgetFormFilterInput(),
-      'ruta'          => new sfWidgetFormFilterInput(),
+      'ruta'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'ciudad'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'telcasa'       => new sfWidgetFormFilterInput(),
       'telmovil'      => new sfWidgetFormFilterInput(),
@@ -27,12 +27,9 @@ abstract class BaseCasaFormFilter extends BaseFormFilterPropel
       'jovenes'       => new sfWidgetFormFilterInput(),
       'jovencitas'    => new sfWidgetFormFilterInput(),
       'totalpersonas' => new sfWidgetFormFilterInput(),
-      'colchonetas'   => new sfWidgetFormFilterInput(),
-      'iglesia'       => new sfWidgetFormFilterInput(),
-      'zona'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'coordenadas'   => new sfWidgetFormFilterInput(),
-      'asignado'      => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'alternos'      => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'asignado'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'alternos'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'observaciones' => new sfWidgetFormFilterInput(),
     ));
 
@@ -52,12 +49,9 @@ abstract class BaseCasaFormFilter extends BaseFormFilterPropel
       'jovenes'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'jovencitas'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'totalpersonas' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'colchonetas'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'iglesia'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'zona'          => new sfValidatorPass(array('required' => false)),
       'coordenadas'   => new sfValidatorPass(array('required' => false)),
-      'asignado'      => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'alternos'      => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'asignado'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'alternos'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'observaciones' => new sfValidatorPass(array('required' => false)),
     ));
 
@@ -92,12 +86,9 @@ abstract class BaseCasaFormFilter extends BaseFormFilterPropel
       'jovenes'       => 'Number',
       'jovencitas'    => 'Number',
       'totalpersonas' => 'Number',
-      'colchonetas'   => 'Number',
-      'iglesia'       => 'Number',
-      'zona'          => 'Text',
       'coordenadas'   => 'Text',
-      'asignado'      => 'Boolean',
-      'alternos'      => 'Boolean',
+      'asignado'      => 'Number',
+      'alternos'      => 'Number',
       'observaciones' => 'Text',
     );
   }

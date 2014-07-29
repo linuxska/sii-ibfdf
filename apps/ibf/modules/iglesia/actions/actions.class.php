@@ -124,7 +124,7 @@ class iglesiaActions extends autoIglesiaActions
 
   // Set some content to print
   $html = $html3."<br/>"."<br/>"." Información de la Iglesia: <i>".$nombreiglesia."</i><br/>".'<img style="-webkit-user-select: none; cursor: -webkit-zoom-out; "
-  align="middle" height="500" width="500" src="/Users/linuxska/sfproject/sii-ibf/web/uploads/fotos/'.$url.'"/>'."<br/>".
+  align="middle" height="500" width="500" src="/Library/WebServer/Documents/sii-ibfdf/sii-ibfdf/web/uploads/fotos/'.$url.'"/>'."<br/>".
   "Nombre del pastor: ".$nombrepastor."<br/>"."Direccion: ".$domicilio."<br/>"."en: ".$localizacion."<br/>Telefono: ".
   $telefono."<br/>"."Celular: ".$movil."<br/>Correo electronico: ".$correo."<br/>"."Pagina: ".$pagina;
   // Print text using writeHTMLCell()

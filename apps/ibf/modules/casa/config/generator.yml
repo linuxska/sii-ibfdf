@@ -22,6 +22,7 @@ generator:
         amaterno:      { label: A. materno }
         direccion:     { label: Dirección }
         cp:            { label: CP }
+        coordenadas:   { label: Coordenadas }
         telcasa:       { label: Teléfono }
         telmovil:      { label: Celular }
         matrimonios:   { label: Mat.  }
@@ -31,10 +32,9 @@ generator:
         totalpersonas: { label: Total }
       list:    
         title: Lista de Casas donde Hospedar
-        display: [id, =__Ministerio, =__nombre, direccion,colonia, zona, telcasa, telmovil ,matrimonios, peques, jovenes, jovencitas, iglesia, totalpersonas , alternos,  asignado, observaciones]
+        display: [id, =__nombre, direccion,colonia, telcasa, telmovil ,matrimonios, peques, jovenes, jovencitas, totalpersonas , alternos,  asignado, observaciones]
         fields:  
           __nombre:      { label: Nombre completo }
-          __Ministerio:  { label: Ministerio }
         max_per_page: 20
         actions:
           reporte:
@@ -51,10 +51,12 @@ generator:
              label: Editar
           Imprimir:
             label: Imprimir
+          ImprimirCoordenadas:
+            label: Imprimir Coordenadas
           Asignar:  
              label: Asignar
       filter:  
-        display: [ nombre,colonia, matrimonios, peques, jovenes, jovencitas,iglesia, totalpersonas , asignado]
+        display: [ nombre,colonia, matrimonios, peques, jovenes, jovencitas, totalpersonas , asignado]
         fields:  
           nombre:      { label: Nombres (s) }
           matrimonios: { label: Matrimonios  }

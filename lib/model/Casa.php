@@ -36,9 +36,7 @@ class Casa extends BaseCasa {
     public function get_Nombre(){
         return sprintf("%s %s %s",  $this->getNombre(),$this->getAPaterno(), $this->getAMaterno());
     }
-    public function get_ministerio(){
-        return sprintf("%s",  MinisterioPeer::retrieveByPk($this->ministerio));
-    }
+   
     
 
 } // Casa

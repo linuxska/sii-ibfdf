@@ -1,82 +1,86 @@
 propel:
-  ministerio:
-    id:            ~
-    name:          { type: varchar(255), required: true, index: unique }
-
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
   casa:
-    id:            ~
-    nombre:        { type: varchar(255), required: true }
-    apaterno:      { type: varchar(255), required: true }
-    amaterno:      { type: varchar(255) }
-    direccion:     { type: varchar(255), required: true }
-    colonia:       { type: varchar(255) }
-    cp:            { type: varchar(5)  }
-    ruta:          { type: varchar(10)  }
-    ciudad:        { type: varchar(255), required: true }
-    telcasa:       { type: varchar(10) }
-    telmovil:      { type: varchar(10) }
-    matrimonios:   { type: integer }
-    peques:        { type: integer }
-    jovenes:       { type: integer }
-    jovencitas:    { type: integer }
-    totalpersonas: { type: integer }
-    colchonetas:   { type: integer }
-    iglesia:       { type: integer }
-    zona:          { type: varchar(1), required: true}
-    coordenadas:   { type: varchar(255) }
-    asignado:      { type: boolean, required: true, default: 0 }
-    alternos:      { type: boolean, required: true, default: 0 }
-    observaciones: { type: varchar(255) }
-
-  miembro:
-    id:            ~
-    nombre:        { type: varchar(255), required: true }
-    apaterno:      { type: varchar(255), required: true }
-    amaterno:      { type: varchar(255) }
-    sexo:          { type: varchar(10)  }
-    direccion:     { type: varchar(255), required: true }
-    entrecalles:   { type: varchar(255) }
-    colonia:       { type: varchar(255) }
-    cp:            { type: varchar(5)}
-    ciudad:        { type: varchar(255), required: true }
-    telcasa:       { type: varchar(10) }
-    telmovil:      { type: varchar(10) }
-    cumpleanios:   { type: date }
-    fechabautismo: { type: date }
-    correo:        { type: varchar(255) }
-    observaciones: { type: varchar(255) }
-
+    _attributes: { phpName: Casa }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '255', required: true }
+    apaterno: { phpName: Apaterno, type: VARCHAR, size: '255', required: true }
+    amaterno: { phpName: Amaterno, type: VARCHAR, size: '255', required: false }
+    direccion: { phpName: Direccion, type: VARCHAR, size: '255', required: true }
+    colonia: { phpName: Colonia, type: VARCHAR, size: '255', required: false }
+    cp: { phpName: Cp, type: VARCHAR, size: '5', required: false }
+    ruta: { phpName: Ruta, type: VARCHAR, size: '32', required: true, }
+    ciudad: { phpName: Ciudad, type: VARCHAR, size: '255', required: true }
+    telcasa: { phpName: Telcasa, type: VARCHAR, size: '10', required: false }
+    telmovil: { phpName: Telmovil, type: VARCHAR, size: '10', required: false }
+    matrimonios: { phpName: Matrimonios, type: INTEGER, size: '11', required: false }
+    peques: { phpName: Peques, type: INTEGER, size: '11', required: false }
+    jovenes: { phpName: Jovenes, type: INTEGER, size: '11', required: false }
+    jovencitas: { phpName: Jovencitas, type: INTEGER, size: '11', required: false }
+    totalpersonas: { phpName: Totalpersonas, type: INTEGER, size: '11', required: false }
+    coordenadas: { phpName: Coordenadas, type: VARCHAR, size: '255', required: false }
+    asignado: { phpName: Asignado, type: TINYINT, size: '4', required: true, defaultValue: '0' }
+    alternos: { phpName: Alternos, type: TINYINT, size: '4', required: true, defaultValue: '0' }
+    observaciones: { phpName: Observaciones, type: VARCHAR, size: '255', required: false }
   iglesia:
-    id:             ~
-    nombre_iglesia: { type: varchar(255), required: true }
-    nombre_pastor:  { type: varchar(255), required: true }
-    apaterno:       { type: varchar(255), required: true }
-    amaterno:       { type: varchar(255) }
-    direccion:      { type: varchar(255), required: true }
-    colonia:        { type: varchar(255) }
-    cp:             { type: varchar(5) }
-    ciudad:         { type: varchar(255), required: true }
-    estado:         { type: varchar(255), required: true }
-    pais:           { type: varchar(255), required: true }
-    telefono:       { type: varchar(12) }
-    movil:          { type: varchar(12) }
-    correo:         { type: varchar(255) }
-    pagina:         { type: varchar(255) }
-    nombrearchivo:  { type: varchar(255) }
-    foto:           { type: boolean, default: 0 }
-    observaciones:  { type: varchar(255) }
-
+    _attributes: { phpName: Iglesia }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    nombre_iglesia: { phpName: NombreIglesia, type: VARCHAR, size: '255', required: true }
+    nombre_pastor: { phpName: NombrePastor, type: VARCHAR, size: '255', required: true }
+    apaterno: { phpName: Apaterno, type: VARCHAR, size: '255', required: true }
+    amaterno: { phpName: Amaterno, type: VARCHAR, size: '255', required: false }
+    direccion: { phpName: Direccion, type: VARCHAR, size: '255', required: true }
+    colonia: { phpName: Colonia, type: VARCHAR, size: '255', required: false }
+    cp: { phpName: Cp, type: VARCHAR, size: '5', required: false }
+    ciudad: { phpName: Ciudad, type: VARCHAR, size: '255', required: true }
+    estado: { phpName: Estado, type: VARCHAR, size: '255', required: true }
+    pais: { phpName: Pais, type: VARCHAR, size: '255', required: true }
+    telefono: { phpName: Telefono, type: VARCHAR, size: '12', required: false }
+    movil: { phpName: Movil, type: VARCHAR, size: '12', required: false }
+    correo: { phpName: Correo, type: VARCHAR, size: '255', required: false }
+    pagina: { phpName: Pagina, type: VARCHAR, size: '255', required: false }
+    nombrearchivo: { phpName: Nombrearchivo, type: VARCHAR, size: '255', required: false }
+    foto: { phpName: Foto, type: TINYINT, size: '4', required: false, defaultValue: '0' }
+    observaciones: { phpName: Observaciones, type: VARCHAR, size: '255', required: false }
+  miembro:
+    _attributes: { phpName: Miembro }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    ministerio: { phpName: Ministerio, type: INTEGER, size: '11', required: true, foreignTable: ministerio, foreignReference: id, onDelete: CASCADE, onUpdate: RESTRICT }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '255', required: true }
+    apaterno: { phpName: Apaterno, type: VARCHAR, size: '255', required: true }
+    amaterno: { phpName: Amaterno, type: VARCHAR, size: '255', required: false }
+    sexo: { phpName: Sexo, type: VARCHAR, size: '10', required: false }
+    direccion: { phpName: Direccion, type: VARCHAR, size: '255', required: true }
+    entrecalles: { phpName: Entrecalles, type: VARCHAR, size: '255', required: false }
+    colonia: { phpName: Colonia, type: VARCHAR, size: '255', required: false }
+    cp: { phpName: Cp, type: VARCHAR, size: '5', required: false }
+    ciudad: { phpName: Ciudad, type: VARCHAR, size: '255', required: true }
+    telcasa: { phpName: Telcasa, type: VARCHAR, size: '10', required: false }
+    telmovil: { phpName: Telmovil, type: VARCHAR, size: '10', required: false }
+    cumpleanios: { phpName: Cumpleanios, type: DATE, required: false }
+    fechabautismo: { phpName: Fechabautismo, type: DATE, required: false }
+    correo: { phpName: Correo, type: VARCHAR, size: '255', required: false }
+    observaciones: { phpName: Observaciones, type: VARCHAR, size: '255', required: false }
+    _indexes: { miembro_FI_1: [ministerio] }
+  ministerio:
+    _attributes: { phpName: Ministerios }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    name: { phpName: Name, type: VARCHAR, size: '255', required: true }
+    _uniques: { ministerio_U_1: [name] }
   proveedor:
-    id:            ~
-    nombreempresa: { type: varchar(255), required: true }
-    giro:          { type: varchar(64)  }
-    direccion:     { type: varchar(255), required: true }
-    entrecalles:   { type: varchar(255) }
-    colonia:       { type: varchar(255) }
-    cp:            { type: varchar(5)}
-    ciudad:        { type: varchar(255), required: true }
-    tellocal:      { type: varchar(10) }
-    telmovil:      { type: varchar(10) }
-    idnextel:      { type: varchar(15) }
-    correo:        { type: varchar(255) }
-    observaciones: { type: varchar(255) }
+    _attributes: { phpName: Proveedor }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    nombreempresa: { phpName: Nombreempresa, type: VARCHAR, size: '255', required: true }
+    giro: { phpName: Giro, type: VARCHAR, size: '64', required: false }
+    direccion: { phpName: Direccion, type: VARCHAR, size: '255', required: true }
+    entrecalles: { phpName: Entrecalles, type: VARCHAR, size: '255', required: false }
+    colonia: { phpName: Colonia, type: VARCHAR, size: '255', required: false }
+    cp: { phpName: Cp, type: VARCHAR, size: '5', required: false }
+    ciudad: { phpName: Ciudad, type: VARCHAR, size: '255', required: true }
+    tellocal: { phpName: Tellocal, type: VARCHAR, size: '10', required: false }
+    telmovil: { phpName: Telmovil, type: VARCHAR, size: '10', required: false }
+    idnextel: { phpName: Idnextel, type: VARCHAR, size: '15', required: false }
+    correo: { phpName: Correo, type: VARCHAR, size: '255', required: false }
+    observaciones: { phpName: Observaciones, type: VARCHAR, size: '255', required: false }

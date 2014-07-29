@@ -30,7 +30,7 @@ abstract class BaseIglesiaForm extends BaseFormPropel
       'correo'         => new sfWidgetFormInputText(),
       'pagina'         => new sfWidgetFormInputText(),
       'nombrearchivo'  => new sfWidgetFormInputText(),
-      'foto'           => new sfWidgetFormInputCheckbox(),
+      'foto'           => new sfWidgetFormInputText(),
       'observaciones'  => new sfWidgetFormInputText(),
     ));
 
@@ -51,7 +51,7 @@ abstract class BaseIglesiaForm extends BaseFormPropel
       'correo'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'pagina'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'nombrearchivo'  => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'foto'           => new sfValidatorBoolean(array('required' => false)),
+      'foto'           => new sfValidatorInteger(array('min' => -128, 'max' => 127, 'required' => false)),
       'observaciones'  => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
